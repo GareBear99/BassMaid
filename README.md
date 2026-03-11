@@ -37,8 +37,8 @@ BassMaid is built to make low-end work easier.
 
 BassMaid is part of the Maid Audio suite and HUB:
 
-- **FreeEQ8** — free parametric EQ
-- **BassMaid** — low-end enhancement
+- **FreeEQ8** — free parametric EQ - https://github.com/GareBear99/FreeEQ8
+- **BassMaid** — low-end enhancement - https://github.com/GareBear99/BassMaid
 - **GlueMaid** — glue and cohesion
 - **SpaceMaid** — depth and space
 
