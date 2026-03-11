@@ -39,8 +39,8 @@ BassMaid is part of the Maid Audio suite and TizWildinEntertainment HUB:
 
 - **FreeEQ8** — free parametric EQ - https://github.com/GareBear99/FreeEQ8
 - **BassMaid** — low-end enhancement - https://github.com/GareBear99/BassMaid
-- **GlueMaid** — glue and cohesion
-- **SpaceMaid** — depth and space
+- **GlueMaid** — glue and cohesion - https://github.com/GareBear99/GlueMaid
+- **SpaceMaid** — depth and space - https://github.com/GareBear99/SpaceMaid
 
 Together, these plugins form the foundation of a practical mixing toolkit.
 
