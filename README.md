@@ -35,7 +35,7 @@ BassMaid is built to make low-end work easier.
 
 ## Position in the Maid Audio Lineup
 
-BassMaid is part of the Maid Audio suite and HUB:
+BassMaid is part of the Maid Audio suite and TizWildinEntertainment HUB:
 
 - **FreeEQ8** — free parametric EQ - https://github.com/GareBear99/FreeEQ8
 - **BassMaid** — low-end enhancement - https://github.com/GareBear99/BassMaid
