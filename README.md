@@ -45,14 +45,19 @@ BassMaid is built to make low-end work easier.
 
 ## Position in the Maid Audio Lineup
 
-BassMaid is part of the Maid Audio suite and TizWildinEntertainment HUB:
+BassMaid is part of the Maid Audio suite, anchored by FreeEQ8:
 
-- **FreeEQ8** — free parametric EQ - https://github.com/GareBear99/FreeEQ8
-- **BassMaid** — low-end enhancement - https://github.com/GareBear99/BassMaid
-- **GlueMaid** — glue and cohesion - https://github.com/GareBear99/GlueMaid
-- **SpaceMaid** — depth and space - https://github.com/GareBear99/SpaceMaid
+- **FreeEQ8** — flagship 8-band parametric EQ (anchors the suite) · [https://github.com/GareBear99/FreeEQ8](https://github.com/GareBear99/FreeEQ8)
+- **BassMaid** — low-end enhancement, sub reinforcement, tightening · [https://github.com/GareBear99/BassMaid](https://github.com/GareBear99/BassMaid) ← *you are here*
+- **SpaceMaid** — depth, width, ambience, spatial design · [https://github.com/GareBear99/SpaceMaid](https://github.com/GareBear99/SpaceMaid)
+- **GlueMaid** — mix-bus glue and cohesion · [https://github.com/GareBear99/GlueMaid](https://github.com/GareBear99/GlueMaid)
+- **MixMaid** — real-time spectral balance and mix correction · [https://github.com/GareBear99/MixMaid](https://github.com/GareBear99/MixMaid)
+- **MultiMaid** — focused multiband dynamics, non-overlapping with the rest · [https://github.com/GareBear99/MultiMaid](https://github.com/GareBear99/MultiMaid)
+- **MeterMaid** — ITU-R BS.1770-4 / EBU R128 mastering + metering suite with an octagonal target radar · [https://github.com/GareBear99/MeterMaid](https://github.com/GareBear99/MeterMaid)
+- **ChainMaid** — sidechain ducking, pumping, and trigger routing · [https://github.com/GareBear99/ChainMaid](https://github.com/GareBear99/ChainMaid)
 
-Together, these plugins form the foundation of a practical mixing toolkit.
+Together, the Maid Audio suite is a complete, practical mixing + mastering toolkit:
+FreeEQ8 shapes tone, BassMaid owns the low end, SpaceMaid places sources in space, GlueMaid bonds the bus, MixMaid corrects spectral balance, MultiMaid tames multiband dynamics, MeterMaid verifies the result against broadcast and streaming targets, and ChainMaid routes the dynamic interaction between tracks.
 
 ## Plugin Format
 
