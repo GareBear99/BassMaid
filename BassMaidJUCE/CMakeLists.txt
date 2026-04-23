@@ -51,3 +51,8 @@ target_link_libraries(BassMaid PRIVATE
     juce::juce_dsp
     juce::juce_gui_extra
 )
+
+# Auto-added: generate JuceHeader.h for sources that include <JuceHeader.h>
+juce_generate_juce_header(BassMaid)
+
+target_compile_definitions(BassMaid PRIVATE JUCE_VST3_CAN_REPLACE_VST2=0)

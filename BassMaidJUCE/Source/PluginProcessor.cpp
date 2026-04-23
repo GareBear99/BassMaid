@@ -20,8 +20,10 @@ BassEnhancerAudioProcessor::BassEnhancerAudioProcessor()
 
 BassEnhancerAudioProcessor::~BassEnhancerAudioProcessor()
 {
-    for (auto* p : apvts.getParameterPointerList())
-        apvts.removeParameterListener(p->paramID, this);
+    for (auto* id : { IDs::xover, IDs::subTune, IDs::subTight, IDs::harmTone, IDs::tightSpd, IDs::ceiling,
+                      IDs::inputGain, IDs::outputGain, IDs::mix, IDs::lowLevel,
+                      IDs::subAmount, IDs::harmAmount, IDs::drive, IDs::tightAmt, IDs::limiterOn })
+        apvts.removeParameterListener (id, this);
 }
 
 const juce::String BassEnhancerAudioProcessor::getName() const { return "BassMaid"; }
@@ -145,7 +147,7 @@ void BassEnhancerAudioProcessor::updateDSPIfNeeded(double sampleRate)
     const float q = 1.0f;
     auto bp = juce::dsp::IIR::Coefficients<float>::makeBandPass(sampleRate, subTuneHz, q);
     for (int ch=0; ch<2; ++ch)
-        *subBP[ch].state = *bp;
+        *subBP[ch].coefficients = *bp;
 
     const float tone = juce::jlimit(-1.0f, 1.0f, harmTone);
     const float shelfDb = 6.0f * tone;
@@ -158,11 +160,11 @@ void BassEnhancerAudioProcessor::updateDSPIfNeeded(double sampleRate)
         shelf = juce::dsp::IIR::Coefficients<float>::makeLowShelf(sampleRate, shelfFreq, 0.707f, dbToLin(-shelfDb));
 
     for (int ch=0; ch<2; ++ch)
-        *harmPreTilt[ch].state = *shelf;
+        *harmPreTilt[ch].coefficients = *shelf;
 
     auto lpf = juce::dsp::IIR::Coefficients<float>::makeLowPass(sampleRate, 2500.0f, 0.707f);
     for (int ch=0; ch<2; ++ch)
-        *harmLPF[ch].state = *lpf;
+        *harmLPF[ch].coefficients = *lpf;
 
     lowLevelSm.setTargetValue(dbToLin(lowLevelDb));
 }
@@ -267,7 +269,7 @@ void BassEnhancerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
             {
                 float x = harmPreTilt[ch].processSample(low[i]);
                 x *= driveSm.getNextValue();
-                x = shaper.processSample(0, x);
+                x = shaper.processSample (x);
                 x = harmLPF[ch].processSample(x);
                 harmSample = x * harmAmt;
             }
@@ -342,4 +344,10 @@ void BassEnhancerAudioProcessor::setStateInformation (const void* data, int size
     if (xml && xml->hasTagName(apvts.state.getType()))
         apvts.replaceState(juce::ValueTree::fromXml(*xml));
     dspDirty.store(true, std::memory_order_release);
+}
+
+// Standard JUCE factory (required by juce_add_plugin).
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new BassEnhancerAudioProcessor();
 }
